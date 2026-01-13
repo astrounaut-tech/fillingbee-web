@@ -1,0 +1,14 @@
+{
+    "extends": "../config/typescript/base.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@fillingbee/lib": [
+                "../../lib"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}
