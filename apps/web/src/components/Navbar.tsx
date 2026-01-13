@@ -38,10 +38,10 @@ export function Navbar() {
                     <div className="flex items-center gap-2 md:gap-4">
                         <ThemeToggle />
                         <div className="hidden md:flex items-center gap-4">
-                            <Link href="http://localhost:3001/auth/signin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                            <Link href="https://fillingbee-web-dashboard.vercel.app/auth/signin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                                 Sign In
                             </Link>
-                            <Link href="http://localhost:3001/auth/signup">
+                            <Link href="https://fillingbee-web-dashboard.vercel.app/auth/signup">
                                 <Button className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all">
                                     Get Started
                                 </Button>
