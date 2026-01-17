@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { GripVertical, Plus, Trash2, Save, Type, Mail, CheckSquare, ChevronLeft, Settings } from "lucide-react"
-import { Input, Label } from "@fillingbee/ui"
+import { Input, Label, Button } from "@fillingbee/ui"
 import Link from "next/link"
 
 type FieldType = "text" | "email" | "textarea" | "checkbox"
@@ -42,99 +42,99 @@ export function FormBuilder() {
     }
 
     return (
-        <div className="flex h-[calc(100vh-4rem)] overflow-hidden">
+        <div className="flex h-[calc(100vh-4rem)] overflow-hidden bg-background">
             {/* Sidebar - Tools */}
-            <div className="w-64 border-r border-white/5 bg-secondary/30 backdrop-blur-md p-4 flex flex-col gap-6">
-                <div className="flex items-center gap-2">
-                    <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors p-2 -ml-2 rounded-md hover:bg-white/5">
-                        <ChevronLeft className="h-4 w-4" />
+            <div className="w-72 border-r border-border/50 bg-card/30 backdrop-blur-xl p-6 flex flex-col gap-8">
+                <div className="flex items-center gap-3">
+                    <Link href="/">
+                        <Button variant="ghost" size="icon" className="h-10 w-10 rounded-xl hover:bg-white/5 border border-transparent hover:border-border/50 transition-all">
+                            <ChevronLeft className="h-5 w-5" />
+                        </Button>
                     </Link>
-                    <span className="font-semibold text-sm">Back to Dashboard</span>
+                    <span className="font-black text-sm uppercase tracking-widest text-muted-foreground/50">Builder</span>
                 </div>
 
-                <div className="space-y-4">
-                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider pl-1">Input Fields</h3>
-                    <div className="space-y-2">
-                        <button
-                            onClick={() => addField("text")}
-                            className="w-full flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-white/5 text-sm hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all text-left shadow-sm"
-                        >
-                            <Type className="h-4 w-4" /> Text Input
-                        </button>
-                        <button
-                            onClick={() => addField("email")}
-                            className="w-full flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-white/5 text-sm hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all text-left shadow-sm"
-                        >
-                            <Mail className="h-4 w-4" /> Email
-                        </button>
-                        <button
-                            onClick={() => addField("checkbox")}
-                            className="w-full flex items-center gap-3 p-3 rounded-lg bg-background/50 border border-white/5 text-sm hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all text-left shadow-sm"
-                        >
-                            <CheckSquare className="h-4 w-4" /> Checkbox
-                        </button>
+                <div className="space-y-6">
+                    <h3 className="text-[10px] font-black text-primary uppercase tracking-widest pl-1">Input Elements</h3>
+                    <div className="space-y-3">
+                        {[
+                            { type: "text", icon: Type, label: "Text Field" },
+                            { type: "email", icon: Mail, label: "Email Address" },
+                            { type: "checkbox", icon: CheckSquare, label: "Checkbox" },
+                        ].map((item) => (
+                            <button
+                                key={item.type}
+                                onClick={() => addField(item.type as FieldType)}
+                                className="w-full flex items-center gap-4 p-4 rounded-2xl bg-card/20 border-2 border-border/30 text-sm font-black hover:border-primary hover:bg-primary/5 hover:text-primary transition-all text-left group shadow-sm"
+                            >
+                                <div className="p-2 rounded-lg bg-muted group-hover:bg-primary/20 transition-colors">
+                                    <item.icon className="h-4 w-4" />
+                                </div>
+                                {item.label}
+                            </button>
+                        ))}
                     </div>
                 </div>
             </div>
 
             {/* Main Canvas - Preview */}
             <div className="flex-1 bg-background relative overflow-y-auto">
-                {/* Grid Background */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+                {/* Noise/Grid Overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(#ffd20015_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none opacity-50" />
 
-                <div className="p-8 pb-32">
-                    <div className="max-w-2xl mx-auto space-y-8 relative z-10">
-                        <div className="flex items-center justify-between sticky top-0 bg-background/80 backdrop-blur-md py-4 z-20 border-b border-white/5 -mx-8 px-8">
+                <div className="p-10 pb-40">
+                    <div className="max-w-3xl mx-auto space-y-10 relative z-10">
+                        <div className="flex items-center justify-between sticky top-0 bg-background/50 backdrop-blur-md py-6 z-30 border-b border-border/50 -mx-10 px-10">
                             <input
-                                className="text-2xl font-bold bg-transparent border-none focus:outline-none focus:ring-0 placeholder:text-muted-foreground w-full text-foreground"
+                                className="text-3xl font-black bg-transparent border-none focus:outline-none focus:ring-0 placeholder:text-muted-foreground/30 w-full text-foreground"
                                 defaultValue="Untitled Form"
-                                placeholder="Form Title"
+                                placeholder="Name your form..."
                             />
-                            <button className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-primary/20 hover:bg-primary/90 hover:shadow-primary/40 transition-all">
-                                <Save className="h-4 w-4" /> Publish
-                            </button>
+                            <Button className="h-12 px-8 rounded-xl bg-primary text-primary-foreground font-black shadow-lg shadow-primary/20 hover:bg-primary/90 hover:shadow-primary/40 transition-all">
+                                <Save className="h-5 w-5 mr-2 stroke-[2.5]" /> Publish
+                            </Button>
                         </div>
 
-                        <div className="bg-secondary/20 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl min-h-[500px] p-8 space-y-6">
+                        <div className="bg-card/40 backdrop-blur-2xl rounded-[2rem] border-2 border-border/50 shadow-2xl min-h-[600px] p-10 space-y-8">
                             {fields.length === 0 ? (
-                                <div className="h-full flex flex-col items-center justify-center text-muted-foreground py-32 border-2 border-dashed border-white/10 rounded-xl bg-white/5">
-                                    <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mb-4 text-muted-foreground">
-                                        <Plus className="h-6 w-6" />
+                                <div className="h-full flex flex-col items-center justify-center text-muted-foreground py-40 border-2 border-dashed border-border/50 rounded-3xl bg-card/10">
+                                    <div className="w-20 h-20 bg-primary/5 rounded-3xl flex items-center justify-center mb-6 border-2 border-primary/20">
+                                        <Plus className="h-10 w-10 text-primary stroke-[2.5]" />
                                     </div>
-                                    <p className="font-medium">Your form is empty</p>
-                                    <p className="text-xs mt-1 opacity-70">Click fields on the left to add them</p>
+                                    <p className="font-black text-xl text-foreground">Design your form</p>
+                                    <p className="text-sm mt-2 font-medium italic opacity-60">Drag elements from the sidebar to start</p>
                                 </div>
                             ) : (
                                 fields.map((field) => (
                                     <div
                                         key={field.id}
                                         onClick={() => setActiveId(field.id)}
-                                        className={`group relative p-6 rounded-xl border transition-all cursor-pointer ${activeId === field.id ? "border-primary ring-1 ring-primary/20 bg-primary/5 shadow-lg shadow-primary/5" : "border-transparent hover:border-white/10 hover:bg-white/5"}`}
+                                        className={`group relative p-8 rounded-2xl border-2 transition-all cursor-pointer ${activeId === field.id ? "border-primary bg-primary/[0.03] shadow-2xl shadow-primary/5 scale-[1.02]" : "border-transparent hover:border-border/30 hover:bg-card/20"}`}
                                     >
-                                        <div className="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
-                                            <button onClick={(e) => { e.stopPropagation(); removeField(field.id); }} className="p-2 hover:bg-destructive/10 text-muted-foreground hover:text-destructive rounded-md transition-colors">
-                                                <Trash2 className="h-4 w-4" />
+                                        <div className="absolute right-6 top-6 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2 z-20">
+                                            <button onClick={(e) => { e.stopPropagation(); removeField(field.id); }} className="p-2.5 bg-destructive/10 hover:bg-destructive text-destructive hover:text-white rounded-xl transition-all border border-destructive/20 shadow-lg">
+                                                <Trash2 className="h-5 w-5" />
                                             </button>
                                         </div>
 
-                                        <div className="space-y-3 pointer-events-none">
-                                            <Label className="flex gap-1 text-base font-medium">
+                                        <div className="space-y-4 pointer-events-none">
+                                            <Label className="flex gap-2 text-lg font-black italic">
                                                 {field.label}
-                                                {field.required && <span className="text-destructive">*</span>}
+                                                {field.required && <span className="text-primary">*</span>}
                                             </Label>
-                                            {field.type === "text" && <Input placeholder="Short answer text" disabled className="bg-background/50 border-white/10" />}
-                                            {field.type === "email" && <Input placeholder="email@example.com" disabled className="bg-background/50 border-white/10" />}
+                                            {field.type === "text" && <Input placeholder="Type your answer here..." disabled className="h-14 bg-background/50 border-2 border-border/30 rounded-xl" />}
+                                            {field.type === "email" && <Input placeholder="email@example.com" disabled className="h-14 bg-background/50 border-2 border-border/30 rounded-xl" />}
                                             {field.type === "checkbox" && (
-                                                <div className="flex items-center space-x-3 p-3 rounded-lg border border-transparent">
-                                                    <div className="w-5 h-5 border-2 border-input rounded flex items-center justify-center bg-background/50" />
-                                                    <span className="text-sm text-foreground/80">Option label</span>
+                                                <div className="flex items-center space-x-4 p-4 rounded-xl border-2 border-border/30 bg-background/50">
+                                                    <div className="w-6 h-6 border-3 border-border rounded-lg bg-background" />
+                                                    <span className="text-sm font-bold text-foreground/70 italic">Accept conditions</span>
                                                 </div>
                                             )}
                                         </div>
 
                                         {/* Drag Handle Mock */}
-                                        <div className="absolute left-1 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-50 cursor-grab px-1">
-                                            <GripVertical className="h-4 w-4" />
+                                        <div className="absolute left-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 cursor-grab px-1 text-muted-foreground/30">
+                                            <GripVertical className="h-6 w-6" />
                                         </div>
                                     </div>
                                 ))
@@ -146,37 +146,39 @@ export function FormBuilder() {
 
             {/* Right Sidebar - Properties */}
             {activeId && (
-                <div className="w-80 border-l border-white/5 bg-secondary/30 backdrop-blur-md p-6 flex flex-col gap-6 animate-in slide-in-from-right-10 duration-200">
+                <div className="w-80 border-l border-border/50 bg-card/30 backdrop-blur-xl p-8 flex flex-col gap-8 animate-in slide-in-from-right-10 duration-300">
                     <div>
-                        <div className="flex items-center gap-2 mb-6 border-b border-white/5 pb-4 text-foreground">
-                            <Settings className="h-4 w-4" />
-                            <h3 className="text-sm font-semibold">Field Properties</h3>
+                        <div className="flex items-center gap-3 mb-8 border-b border-border/50 pb-6">
+                            <div className="p-2 rounded-lg bg-primary/10 border border-primary/20">
+                                <Settings className="h-5 w-5 text-primary" />
+                            </div>
+                            <h3 className="text-sm font-black uppercase tracking-widest text-foreground">Properties</h3>
                         </div>
 
                         {fields.find(f => f.id === activeId) && (
-                            <div className="space-y-6">
-                                <div className="space-y-2">
-                                    <Label>Field Label</Label>
+                            <div className="space-y-8">
+                                <div className="space-y-3">
+                                    <Label className="text-xs font-black uppercase tracking-widest text-muted-foreground">Label</Label>
                                     <Input
-                                        className="bg-background/50 border-white/10"
+                                        className="h-12 bg-background/50 border-2 border-border/30 rounded-xl font-bold"
                                         value={fields.find(f => f.id === activeId)?.label}
                                         onChange={(e) => updateField(activeId, { label: e.target.value })}
                                     />
                                 </div>
-                                <div className="flex items-center justify-between p-4 rounded-lg border border-white/5 bg-white/5">
-                                    <Label className="cursor-pointer" htmlFor="req-check">Required Field</Label>
+                                <div className="flex items-center justify-between p-5 rounded-2xl border-2 border-border/30 bg-card/20 group hover:border-primary/50 transition-all cursor-pointer">
+                                    <Label className="cursor-pointer font-black text-sm" htmlFor="req-check">Required</Label>
                                     <input
                                         id="req-check"
                                         type="checkbox"
                                         checked={fields.find(f => f.id === activeId)?.required}
                                         onChange={(e) => updateField(activeId, { required: e.target.checked })}
-                                        className="w-5 h-5 text-primary rounded ring-offset-background focus:ring-primary accent-primary"
+                                        className="w-6 h-6 rounded-lg border-2 border-border bg-background checked:bg-primary checked:border-primary transition-all cursor-pointer accent-primary"
                                     />
                                 </div>
-                                <div className="space-y-2 pt-4 border-t border-white/5">
-                                    <Label className="text-xs text-muted-foreground uppercase tracking-wider">Developer ID</Label>
-                                    <div className="text-xs font-mono bg-black/20 p-3 rounded border border-white/5 text-muted-foreground break-all">
-                                        field_{activeId}
+                                <div className="pt-8 border-t border-border/50 space-y-3">
+                                    <Label className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Variable Key</Label>
+                                    <div className="text-[10px] font-mono bg-black/40 p-4 rounded-xl border-2 border-border/30 text-primary/70 break-all select-all">
+                                        fb_field_{activeId}
                                     </div>
                                 </div>
                             </div>
