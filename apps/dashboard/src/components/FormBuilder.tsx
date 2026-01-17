@@ -46,7 +46,7 @@ export function FormBuilder() {
             {/* Sidebar - Tools */}
             <div className="w-64 border-r border-white/5 bg-secondary/30 backdrop-blur-md p-4 flex flex-col gap-6">
                 <div className="flex items-center gap-2">
-                    <Link href="/dashboard" className="text-muted-foreground hover:text-foreground transition-colors p-2 -ml-2 rounded-md hover:bg-white/5">
+                    <Link href="/" className="text-muted-foreground hover:text-foreground transition-colors p-2 -ml-2 rounded-md hover:bg-white/5">
                         <ChevronLeft className="h-4 w-4" />
                     </Link>
                     <span className="font-semibold text-sm">Back to Dashboard</span>

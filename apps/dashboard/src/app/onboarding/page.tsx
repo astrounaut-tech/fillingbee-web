@@ -15,7 +15,7 @@ export default function OnboardingPage() {
         if (step < 4) {
             setStep(step + 1)
         } else {
-            router.push("/dashboard")
+            router.push("/")
         }
     }
 
