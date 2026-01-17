@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/Navbar"
 import { Footer } from "@/components/Footer"
 import { Button } from "@fillingbee/ui"
-import { Code2, ShieldCheck, PaintBucket, BarChart3, Users, ArrowRight } from "lucide-react"
+import { Code2, ShieldCheck, PaintBucket, BarChart3 } from "lucide-react"
 import Link from "next/link"
 
 export default function FeaturesPage() {
@@ -10,15 +10,14 @@ export default function FeaturesPage() {
             <Navbar />
             <main className="flex-1">
                 {/* Hero */}
-                <section className="py-20 md:py-32 relative overflow-hidden text-center px-4">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-[120px] -z-10" />
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+                <section className="py-24 md:py-40 relative overflow-hidden text-center px-4 bg-[#f9f4ec] border-b border-border">
+                    <h1 className="font-serif text-5xl md:text-8xl font-normal tracking-tight mb-8">
                         Everything you need <br />
-                        <span className="text-gradient">to capture data</span>
+                        <span className="italic text-primary">to capture data</span>
                     </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        Powerful features for developers, intuitive enough for everyone else.
-                        No-code simplicity meets API-first flexibility.
+                    <p className="text-xl md:text-3xl text-foreground/60 max-w-3xl mx-auto font-medium leading-relaxed">
+                        Powerful features for professional teams, <br />
+                        remarkably intuitive for everyone else.
                     </p>
                 </section>
 
@@ -77,9 +76,9 @@ export default function FeaturesPage() {
                             <div className="space-y-1 text-blue-400">
                                 <p><span className="text-purple-400">GET</span> /v1/submissions</p>
                                 <p className="text-muted-foreground">{"{"}</p>
-                                <p className="pl-4 text-green-400">"data": [</p>
-                                <p className="pl-8 text-green-400">{"{ \"id\": \"sub_123\", \"score\": 9.5 },"}</p>
-                                <p className="pl-8 text-green-400">{"{ \"id\": \"sub_124\", \"score\": 8.1 }"}</p>
+                                <p className="pl-4 text-green-400">&ldquo;data&rdquo;: [</p>
+                                <p className="pl-8 text-green-400">{`{ "id": "sub_123", "score": 9.5 },`}</p>
+                                <p className="pl-8 text-green-400">{`{ "id": "sub_124", "score": 8.1 }`}</p>
                                 <p className="pl-4 text-green-400">]</p>
                                 <p className="text-muted-foreground">{"}"}</p>
                             </div>
@@ -109,7 +108,7 @@ export default function FeaturesPage() {
                             </div>
                             <h2 className="text-3xl font-bold tracking-tight">Real-time Insights</h2>
                             <p className="text-muted-foreground text-lg leading-relaxed">
-                                Don't just collect data—understand it.
+                                Don&apos;t just collect data&mdash;understand it.
                                 Our built-in analytics dashboard gives you a crystal clear view of conversion rates, drop-off points, and respondent demographics.
                             </p>
                             <div className="grid grid-cols-2 gap-4">
@@ -144,7 +143,7 @@ export default function FeaturesPage() {
                             </div>
                             <h2 className="text-3xl font-bold tracking-tight">Enterprise Security</h2>
                             <p className="text-muted-foreground text-lg leading-relaxed">
-                                Your data's safety is our top priority. We implement uncompromised security standards including end-to-end encryption, GDPR compliance, and automated threat detection.
+                                Your data&apos;s safety is our top priority. We implement uncompromised security standards including end-to-end encryption, GDPR compliance, and automated threat detection.
                             </p>
                         </div>
                     </div>
@@ -155,7 +154,7 @@ export default function FeaturesPage() {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] -z-10" />
                     <h2 className="text-4xl font-bold tracking-tight mb-8">Ready to build better forms?</h2>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <Link href="http://localhost:3001/auth/signup">
+                        <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001'}/auth/signup`}>
                             <Button className="h-12 px-8 rounded-full text-base font-semibold shadow-lg shadow-primary/20">Get Started for Free</Button>
                         </Link>
                         <Link href="/pricing">

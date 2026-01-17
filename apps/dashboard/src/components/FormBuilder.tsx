@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import { GripVertical, Plus, Trash2, Save, Type, Mail, CheckSquare, ChevronLeft, Settings } from "lucide-react"
-import { Button, Input, Label } from "@fillingbee/ui"
-import { cn } from "@fillingbee/lib"
+import { Input, Label } from "@fillingbee/ui"
 import Link from "next/link"
 
 type FieldType = "text" | "email" | "textarea" | "checkbox"

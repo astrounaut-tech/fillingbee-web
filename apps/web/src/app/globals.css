@@ -4,12 +4,13 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
+  /* ... rest of theme remains the same ... */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
@@ -34,58 +35,62 @@
   --radius-sm: calc(var(--radius) - 4px);
 }
 
-/* Premium Dark/Light Theme */
+/* Basecamp Style Theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdf8f1;
+  /* Warm Beige */
+  --foreground: #2d2926;
+  /* Deep Charcoal */
 
-  /* Bee Yellow/Amber */
-  --primary: #f59e0b;
-  --primary-foreground: #ffffff;
+  /* Action Yellow */
+  --primary: #ffd200;
+  --primary-foreground: #2d2926;
 
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
+  --secondary: #f3efea;
+  --secondary-foreground: #2d2926;
 
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
+  --muted: #f3efea;
+  --muted-foreground: #6b6661;
 
-  --accent: #f4f4f5;
-  --accent-foreground: #18181b;
+  --accent: #fff9e6;
+  --accent-foreground: #2d2926;
 
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
+  --destructive: #e03131;
+  --destructive-foreground: #ffffff;
 
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #f59e0b;
+  --border: #e6e0d8;
+  --input: #e6e0d8;
+  --ring: #ffd200;
 
-  --radius: 0.75rem;
+  --radius: 0.5rem;
+  /* More subtle radius */
 }
 
 .dark {
-  --background: #0a0a0a;
-  /* Deep Dark */
-  --foreground: #ededed;
+  --background: #121212;
+  /* Matte Black */
+  --foreground: #e5e5e5;
+  /* Off-white */
 
-  --primary: #fbbf24;
-  /* Lighter Amber for dark mode */
-  --primary-foreground: #0a0a0a;
+  --primary: #ffd200;
+  /* Yellow */
+  --primary-foreground: #121212;
 
-  --secondary: #171717;
-  --secondary-foreground: #ededed;
+  --secondary: #1c1c1c;
+  --secondary-foreground: #e5e5e5;
 
-  --muted: #171717;
+  --muted: #262626;
   --muted-foreground: #a1a1aa;
 
-  --accent: #171717;
-  --accent-foreground: #ededed;
+  --accent: #1c1c1c;
+  --accent-foreground: #ffd200;
 
   --destructive: #7f1d1d;
   --destructive-foreground: #fafafa;
 
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #fbbf24;
+  --border: #333333;
+  --input: #333333;
+  --ring: #ffd200;
 }
 
 body {
@@ -94,6 +99,10 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html.dark body {
+  background-color: var(--background);
 }
 
 /* Glassmorphism Utilities */

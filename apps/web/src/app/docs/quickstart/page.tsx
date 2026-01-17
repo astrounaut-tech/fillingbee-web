@@ -9,17 +9,17 @@ export default function QuickstartPage() {
             <section className="mt-8">
                 <h2>1. Create an Account</h2>
                 <p>
-                    Go to the <a href="http://localhost:3001/auth/signup">Sign Up</a> page and create your organization account. You'll be automatically started on the Hobby plan.
+                    Go to the <a href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001'}/auth/signup`}>Sign Up</a> page and create your organization account. You&apos;ll be automatically started on the Hobby plan.
                 </p>
             </section>
 
             <section className="mt-8">
                 <h2>2. Create Your First Form</h2>
                 <p>
-                    Once inside your dashboard, click the <strong>"Create New Form"</strong> button. This will open the FillingBee builder.
+                    Once inside your dashboard, click the <strong>&ldquo;Create New Form&rdquo;</strong> button. This will open the FillingBee builder.
                 </p>
                 <ul>
-                    <li>Add fields like "Email", "Full Name", or "Message".</li>
+                    <li>Add fields like &ldquo;Email&rdquo;, &ldquo;Full Name&rdquo;, or &ldquo;Message&rdquo;.</li>
                     <li>Customize labels and placeholders.</li>
                     <li>Configure success messages.</li>
                 </ul>
@@ -28,14 +28,14 @@ export default function QuickstartPage() {
             <section className="mt-8">
                 <h2>3. Publish and Share</h2>
                 <p>
-                    Hit the <strong>"Publish"</strong> button. Your form is now live! You'll get a unique link (e.g., <code>fillingbee.com/forms/your-form-slug</code>) that you can share with anyone.
+                    Hit the <strong>&ldquo;Publish&rdquo;</strong> button. Your form is now live! You&apos;ll get a unique link (e.g., <code>fillingbee.com/forms/your-form-slug</code>) that you can share with anyone.
                 </p>
             </section>
 
             <section className="mt-8">
                 <h2>4. Collect Submissions</h2>
                 <p>
-                    When someone fills out your form, they'll verify their identity via a secure 6-digit OTP sent to their email. No account creation required for them! Submissions will appear instantly in your dashboard.
+                    When someone fills out your form, they&apos;ll verify their identity via a secure 6-digit OTP sent to their email. No account creation required for them! Submissions will appear instantly in your dashboard.
                 </p>
             </section>
 

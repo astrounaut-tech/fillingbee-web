@@ -10,18 +10,14 @@ import {
 
 export function FeaturesSection() {
     return (
-        <section className="py-12 md:py-20 relative" id="features">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-7xl mx-auto overflow-hidden pointer-events-none -z-10">
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[80px]" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[80px]" />
-            </div>
-
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 md:mb-12 text-center">
-                <h2 className="text-2xl font-bold tracking-tight sm:text-4xl text-foreground text-gradient inline-block">
-                    Full power. No compromise.
+        <section className="py-24 relative overflow-hidden" id="features">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-16 text-center">
+                <h2 className="font-serif text-4xl sm:text-6xl font-normal text-foreground">
+                    Everything you need, <br />
+                    <span className="italic">nothing you don&apos;t</span>
                 </h2>
-                <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Built for speed, privacy, and developer experience.
+                <p className="mt-6 text-xl text-foreground/60 max-w-2xl mx-auto font-medium">
+                    Thoughtful features built for professional teams.
                 </p>
             </div>
 

@@ -34,7 +34,7 @@ export default function DocsPage() {
             <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">Key Concepts</h3>
             <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
                 <li><strong>No-Account Submission</strong>: Reduce drop-off by 40% by not forcing users to sign in.</li>
-                <li><strong>Identity Verification</strong>: We handle the email OTP flow so you don't have to implement auth.</li>
+                <li><strong>Identity Verification</strong>: We handle the email OTP flow so you don&apos;t have to implement auth.</li>
                 <li><strong>White-label</strong>: Your domain, your logo, your colors.</li>
             </ul>
 

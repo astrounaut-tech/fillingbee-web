@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Check, X, Minus, Info } from "lucide-react"
+import { Check, Minus } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@fillingbee/ui"
 import { Navbar } from "@/components/Navbar"
@@ -74,73 +74,75 @@ export default function PricingPage() {
                     <div className="absolute bottom-[-10%] right-[20%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
                 </div>
 
-                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 md:py-20 text-center">
-                    <h1 className="text-3xl font-extrabold tracking-tight sm:text-6xl mb-4 md:mb-6 text-foreground">
-                        Ready to level up your forms?
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+                    <h1 className="font-serif text-4xl font-normal tracking-tight sm:text-7xl mb-6 text-foreground">
+                        Ready to level up <br />
+                        <span className="italic">your forms?</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 md:mb-12">
-                        Simple, transparent pricing for teams of all sizes.
+                    <p className="text-xl md:text-2xl text-foreground/60 max-w-2xl mx-auto mb-16 font-medium">
+                        Simple, transparent pricing for teams of all sizes. <br />
+                        No hidden fees. No surprises.
                     </p>
 
                     {/* Billing Toggle */}
-                    <div className="flex items-center justify-center gap-4 mb-10 md:mb-16">
-                        <span className={cn("text-sm font-medium transition-colors", !isYearly ? "text-foreground" : "text-muted-foreground")}>Monthly</span>
+                    <div className="flex items-center justify-center gap-6 mb-20">
+                        <span className={cn("text-lg font-bold transition-colors", !isYearly ? "text-foreground" : "text-foreground/40")}>Monthly</span>
                         <button
                             onClick={() => setIsYearly(!isYearly)}
-                            className="relative w-14 h-7 rounded-full bg-secondary border border-white/10 transition-colors hover:border-primary/50"
+                            className="relative w-16 h-8 rounded-full bg-secondary border-2 border-foreground/5 transition-colors hover:border-primary"
                         >
                             <div className={cn(
-                                "absolute top-1 left-1 w-5 h-5 rounded-full bg-primary transition-transform duration-300 shadow-[0_0_10px_rgba(245,158,11,0.5)]",
-                                isYearly ? "translate-x-7" : "translate-x-0"
+                                "absolute top-1 left-1 w-5 h-5 rounded-full bg-primary transition-transform duration-300",
+                                isYearly ? "translate-x-8" : "translate-x-0"
                             )} />
                         </button>
-                        <span className={cn("text-sm font-medium transition-colors", isYearly ? "text-foreground" : "text-muted-foreground")}>
-                            Yearly <span className="text-primary text-xs font-bold ml-1 px-2 py-0.5 bg-primary/10 rounded-full">Save 10%</span>
+                        <span className={cn("text-lg font-bold transition-colors", isYearly ? "text-foreground" : "text-foreground/40")}>
+                            Yearly <span className="text-primary text-xs font-black ml-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20">SAVE 10%</span>
                         </span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 max-w-7xl mx-auto mb-20 md:mb-24 px-4 md:px-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-32 px-4 md:px-0">
                         {plans.map((plan) => (
                             <div
                                 key={plan.name}
                                 className={cn(
-                                    "relative rounded-2xl border p-6 md:p-8 flex flex-col items-start gap-4 transition-all duration-300",
+                                    "relative rounded-2xl border-2 p-8 flex flex-col items-start gap-4 transition-all duration-300",
                                     plan.highlight
-                                        ? "border-primary bg-secondary/40 shadow-[0_0_40px_rgba(245,158,11,0.1)] md:scale-105 z-10"
-                                        : "border-white/10 bg-secondary/20 backdrop-blur-md hover:border-white/20"
+                                        ? "border-primary bg-[#fffdfa] shadow-xl md:scale-105 z-10"
+                                        : "border-foreground/5 bg-background shadow-sm hover:border-border hover:shadow-md"
                                 )}
                             >
                                 {plan.highlight && (
-                                    <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-[10px] md:text-xs font-bold shadow-lg whitespace-nowrap">
+                                    <div className="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-5 py-1.5 rounded-full text-[10px] md:text-xs font-black tracking-widest shadow-none border-2 border-foreground/5 whitespace-nowrap">
                                         RECOMMENDED
                                     </div>
                                 )}
-                                <h2 className={cn("text-lg font-bold", plan.highlight ? "text-primary" : "text-foreground")}>{plan.name}</h2>
+                                <h2 className={cn("text-xl font-bold font-serif italic", plan.highlight ? "text-primary" : "text-foreground")}>{plan.name}</h2>
                                 <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-bold text-foreground">
+                                    <span className="text-5xl font-black text-foreground">
                                         {typeof plan.price === "number" ? `$${plan.price}` : plan.price}
                                     </span>
                                     {typeof plan.price === "number" && (
-                                        <span className="text-sm text-muted-foreground">/mo</span>
+                                        <span className="text-lg font-bold text-foreground/40">/mo</span>
                                     )}
                                 </div>
-                                <p className="text-sm text-muted-foreground text-left h-10">{plan.description}</p>
-                                <div className={cn("w-full h-px my-4", plan.highlight ? "bg-primary/20" : "bg-white/5")} />
-                                <ul className="space-y-3 w-full text-left mb-6">
+                                <p className="text-base font-medium text-foreground/60 text-left h-12 leading-relaxed">{plan.description}</p>
+                                <div className={cn("w-full h-px my-6", plan.highlight ? "bg-primary/20" : "bg-foreground/5")} />
+                                <ul className="space-y-4 w-full text-left mb-8">
                                     {plan.features.map((feature) => (
-                                        <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                                            <Check className={cn("h-4 w-4 shrink-0", plan.highlight ? "text-primary" : "text-green-500")} />
-                                            <span className={plan.highlight ? "text-foreground/90" : ""}>{feature}</span>
+                                        <li key={feature} className="flex items-start gap-3 text-sm font-bold text-foreground">
+                                            <Check className={cn("h-5 w-5 shrink-0 stroke-[3]", plan.highlight ? "text-primary" : "text-foreground/20")} />
+                                            <span>{feature}</span>
                                         </li>
                                     ))}
                                 </ul>
                                 <div className="mt-auto w-full pt-4">
                                     <Link href={`/auth/signup?plan=${plan.planId}`} className="w-full">
                                         <Button
-                                            variant={plan.variant as any}
+                                            variant={(plan.variant === "primary" ? "default" : plan.variant) as "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"}
                                             className={cn(
-                                                "w-full rounded-xl h-11 font-semibold",
-                                                plan.highlight && "shadow-lg shadow-primary/20"
+                                                "w-full rounded-full h-14 text-lg font-black tracking-tight",
+                                                plan.highlight ? "bg-primary text-primary-foreground hover:bg-primary/90" : "bg-secondary text-foreground hover:bg-secondary/80"
                                             )}
                                         >
                                             {plan.cta}
@@ -219,7 +221,7 @@ export default function PricingPage() {
     )
 }
 
-function ChevronDownIcon(props: any) {
+function ChevronDownIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
         <svg
             {...props}

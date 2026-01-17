@@ -16,58 +16,53 @@ export function InteractiveDemo() {
     }, [])
 
     return (
-        <section id="demo" className="py-12 md:py-20 bg-muted/30 relative overflow-hidden">
-            {/* Ambient Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-5xl mx-auto overflow-hidden pointer-events-none -z-10">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[80px]" />
-            </div>
-
+        <section id="demo" className="py-20 bg-secondary border-y border-border relative overflow-hidden">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-10 md:mb-16">
-                    <h2 className="text-2xl font-bold tracking-tight sm:text-4xl text-foreground text-gradient inline-block">
-                        See it in action
+                <div className="text-center mb-16">
+                    <h2 className="font-serif text-3xl sm:text-5xl font-normal text-foreground">
+                        Simple to build, <span className="italic">easy to use</span>
                     </h2>
-                    <p className="mt-4 text-base md:text-lg text-muted-foreground px-4">
-                        From creation to collection in seconds.
+                    <p className="mt-4 text-lg text-foreground/60 max-w-xl mx-auto">
+                        FillingBee works exactly how you expect it to. Clean, fast, and remarkably simple.
                     </p>
                 </div>
 
-                <div className="mx-auto max-w-4xl relative rounded-xl border border-white/10 bg-background/50 backdrop-blur-xl shadow-2xl overflow-hidden aspect-[4/3] sm:aspect-[16/9] md:aspect-[2/1]">
+                <div className="mx-auto max-w-4xl relative rounded-xl border-2 border-foreground/5 bg-background shadow-xl overflow-hidden aspect-[4/3] sm:aspect-[16/9] md:aspect-[2/1]">
                     {/* Browser Chrome */}
-                    <div className="bg-secondary/40 px-4 py-3 border-b border-white/5 flex items-center gap-2">
+                    <div className="bg-secondary px-4 py-3 border-b border-border flex items-center gap-2">
                         <div className="flex gap-1.5">
-                            <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/10" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/10" />
-                            <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/10" />
+                            <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                            <div className="w-3 h-3 rounded-full bg-foreground/10" />
+                            <div className="w-3 h-3 rounded-full bg-foreground/10" />
                         </div>
-                        <div className="ml-4 flex-1 bg-background/40 backdrop-blur-sm text-xs text-muted-foreground px-3 py-1.5 rounded-md text-center max-w-xs mx-auto border border-white/5 shadow-inner">
-                            fillingbee.com/builder
+                        <div className="ml-4 flex-1 bg-background text-[10px] font-bold tracking-wider text-foreground/40 px-3 py-1.5 rounded-md text-center max-w-xs mx-auto border border-border shadow-inner">
+                            FILLINGBEE.COM/BUILDER
                         </div>
                     </div>
 
                     <div className="flex h-full">
                         {/* Sidebar (Builder Tools) */}
-                        <div className="w-64 border-r border-white/5 p-4 bg-secondary/10 hidden md:block backdrop-blur-md">
-                            <div className="text-xs font-semibold text-muted-foreground mb-4 uppercase tracking-wider">Fields</div>
-                            <div className="space-y-3">
-                                <div className="flex items-center gap-3 p-2.5 rounded-lg bg-background/50 border border-white/5 text-sm text-foreground shadow-sm cursor-grab hover:bg-secondary/40 transition-colors">
-                                    <Type className="h-4 w-4 text-muted-foreground" /> Text Input
+                        <div className="w-56 border-r border-border p-6 bg-muted hidden md:block">
+                            <div className="text-[10px] font-bold text-foreground/40 mb-6 uppercase tracking-widest">Fields</div>
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-3 p-3 rounded-xl bg-background border-2 border-foreground/5 text-sm font-bold text-foreground shadow-sm italic font-serif">
+                                    <Type className="h-4 w-4 text-primary" /> Text Input
                                 </div>
                                 <motion.div
-                                    className="flex items-center gap-3 p-2.5 rounded-lg bg-background/50 border border-white/5 text-sm text-foreground shadow-sm cursor-grab hover:bg-secondary/40 transition-colors"
-                                    animate={step === 0 ? { x: [0, 100, 0], opacity: [1, 0.5, 1], borderColor: ["rgba(255,255,255,0.05)", "rgba(251,191,36,0.5)", "rgba(255,255,255,0.05)"] } : {}}
+                                    className="flex items-center gap-3 p-3 rounded-xl bg-background border-2 border-primary/20 text-sm font-bold text-foreground shadow-sm italic font-serif"
+                                    animate={step === 0 ? { scale: [1, 1.05, 1], borderColor: ["#e6e0d8", "#ffd200", "#e6e0d8"] } : {}}
                                     transition={{ duration: 1.5 }}
                                 >
-                                    <Mail className="h-4 w-4 text-muted-foreground" /> Email
+                                    <Mail className="h-4 w-4 text-primary" /> Email Input
                                 </motion.div>
-                                <div className="flex items-center gap-3 p-2.5 rounded-lg bg-background/50 border border-white/5 text-sm text-foreground shadow-sm cursor-grab hover:bg-secondary/40 transition-colors">
-                                    <Lock className="h-4 w-4 text-muted-foreground" /> Password
+                                <div className="flex items-center gap-3 p-3 rounded-xl bg-background border-2 border-foreground/5 text-sm font-bold text-foreground shadow-sm italic font-serif">
+                                    <Lock className="h-4 w-4 text-primary" /> Password
                                 </div>
                             </div>
                         </div>
 
                         {/* Main Canvas */}
-                        <div className="flex-1 p-8 relative bg-white/5 backdrop-blur-3xl">
+                        <div className="flex-1 p-10 relative bg-background">
                             <AnimatePresence mode="wait">
                                 {step < 2 ? (
                                     <motion.div
@@ -75,30 +70,30 @@ export function InteractiveDemo() {
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
-                                        className="h-full max-w-md mx-auto bg-background/80 rounded-xl border border-dashed border-border/50 p-6 space-y-6 shadow-sm"
+                                        className="h-full max-w-sm mx-auto bg-background rounded-2xl border-4 border-dashed border-border p-8 space-y-8 shadow-sm"
                                     >
-                                        <div className="h-8 bg-muted rounded w-1/3 animate-pulse" />
-                                        <div className="space-y-2">
-                                            <div className="h-4 bg-muted rounded w-1/4 animate-pulse" />
-                                            <div className="h-10 border border-border rounded-lg bg-background/50" />
+                                        <div className="h-6 bg-secondary rounded w-1/2" />
+                                        <div className="space-y-3">
+                                            <div className="h-3 bg-secondary rounded w-1/4" />
+                                            <div className="h-12 border-2 border-border rounded-xl bg-background" />
                                         </div>
 
                                         {step >= 1 && (
                                             <motion.div
                                                 initial={{ opacity: 0, y: 10, scale: 0.95 }}
                                                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                                                className="space-y-2 p-3 bg-primary/5 rounded-lg border border-primary/20 backdrop-blur-sm"
+                                                className="space-y-3 p-4 bg-primary/5 rounded-2xl border-2 border-primary/30"
                                             >
                                                 <div className="flex items-center justify-between">
-                                                    <div className="text-sm font-medium text-foreground">Email Address</div>
-                                                    <GripVertical className="h-4 w-4 text-muted-foreground" />
+                                                    <div className="text-sm font-bold font-serif italic">Email Address</div>
+                                                    <GripVertical className="h-4 w-4 text-foreground/20" />
                                                 </div>
-                                                <div className="h-10 border border-border rounded-md bg-background" />
+                                                <div className="h-12 border-2 border-border rounded-xl bg-background" />
                                             </motion.div>
                                         )}
 
                                         <motion.button
-                                            className="w-full bg-primary text-primary-foreground h-10 rounded-lg shadow-lg shadow-primary/20 font-medium mt-4"
+                                            className="w-full bg-primary text-primary-foreground h-12 rounded-full border-2 border-foreground/5 font-bold mt-6 shadow-none"
                                             animate={step === 1 ? { scale: [1, 1.05, 1] } : {}}
                                         >
                                             Publish Form
@@ -109,42 +104,42 @@ export function InteractiveDemo() {
                                         key="live"
                                         initial={{ opacity: 0, scale: 0.95 }}
                                         animate={{ opacity: 1, scale: 1 }}
-                                        className="h-full max-w-md mx-auto bg-background rounded-xl shadow-2xl border border-white/10 p-6 space-y-6 relative overflow-hidden"
+                                        className="h-full max-w-sm mx-auto bg-background rounded-2xl shadow-xl border-2 border-foreground/5 p-8 space-y-8 relative overflow-hidden"
                                     >
                                         {/* Success Overlay for Step 3 */}
                                         {step === 3 && (
                                             <motion.div
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
-                                                className="absolute inset-0 bg-background/90 backdrop-blur-sm z-10 flex flex-col items-center justify-center p-6 text-center"
+                                                className="absolute inset-0 bg-background/95 z-10 flex flex-col items-center justify-center p-8 text-center"
                                             >
                                                 <motion.div
                                                     initial={{ scale: 0 }}
                                                     animate={{ scale: 1 }}
-                                                    className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center text-green-500 mb-4"
+                                                    className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-primary-foreground border-4 border-foreground/5 mb-6"
                                                 >
-                                                    <Check className="w-6 h-6" />
+                                                    <Check className="w-8 h-8 stroke-[3]" />
                                                 </motion.div>
-                                                <h3 className="font-bold text-lg">Sent!</h3>
+                                                <h3 className="font-serif text-2xl font-bold italic">Form sent!</h3>
                                             </motion.div>
                                         )}
 
-                                        <div className="flex items-center gap-2 text-green-500 mb-4 bg-green-500/10 p-2 rounded-lg text-sm border border-green-500/20">
-                                            <Check className="h-4 w-4" /> Form Published!
+                                        <div className="flex items-center gap-2 text-primary font-bold mb-6 bg-primary/5 p-3 rounded-xl text-sm border-2 border-primary/20">
+                                            <Check className="h-4 w-4 stroke-[3]" /> FORM PUBLISHED
                                         </div>
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-foreground">Name</label>
-                                            <input className="w-full h-10 border border-border rounded-md px-3 bg-secondary/30" placeholder="John Doe" disabled />
+                                        <div className="space-y-3">
+                                            <label className="text-sm font-bold font-serif italic text-foreground">Name</label>
+                                            <div className="w-full h-12 border-2 border-border rounded-xl px-4 bg-secondary/50 flex items-center text-foreground/40 font-medium">John Doe</div>
                                         </div>
-                                        <div className="space-y-2">
-                                            <label className="text-sm font-medium text-foreground">Email Address</label>
-                                            <input className="w-full h-10 border border-border rounded-md px-3 bg-secondary/30" placeholder="john@example.com" disabled />
+                                        <div className="space-y-3">
+                                            <label className="text-sm font-bold font-serif italic text-foreground">Email Address</label>
+                                            <div className="w-full h-12 border-2 border-border rounded-xl px-4 bg-secondary/50 flex items-center text-foreground/40 font-medium">john@example.com</div>
                                         </div>
                                         <motion.button
-                                            className="w-full bg-primary text-primary-foreground h-10 rounded-lg flex items-center justify-center gap-2 font-medium shadow-lg shadow-primary/20"
+                                            className="w-full bg-primary text-primary-foreground h-12 rounded-full border-2 border-foreground/5 flex items-center justify-center gap-3 font-bold shadow-none"
                                             animate={step === 3 ? { scale: 0.95 } : {}}
                                         >
-                                            <Send className="h-4 w-4" /> Submit
+                                            <Send className="h-5 w-5" /> Submit
                                         </motion.button>
                                     </motion.div>
                                 )}

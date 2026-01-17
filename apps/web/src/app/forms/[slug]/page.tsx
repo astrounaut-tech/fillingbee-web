@@ -24,7 +24,7 @@ export default function PublicFormPage({ params }: { params: { slug: string } })
         try {
             await api.auth.sendOtp(email)
             setStep("otp")
-        } catch (err) {
+        } catch {
             setError("Failed to send OTP. Please try again.")
         } finally {
             setIsLoading(false)
@@ -39,7 +39,7 @@ export default function PublicFormPage({ params }: { params: { slug: string } })
         try {
             await api.auth.verifyOtp(email, otp)
             setStep("form")
-        } catch (err) {
+        } catch {
             setError("Invalid OTP. Please check the code.")
         } finally {
             setIsLoading(false)
@@ -53,7 +53,7 @@ export default function PublicFormPage({ params }: { params: { slug: string } })
         try {
             await api.forms.submit({ slug: params.slug, email, ...formData })
             setStep("success")
-        } catch (err) {
+        } catch {
             setError("Submission failed. Please try again.")
         } finally {
             setIsLoading(false)
@@ -104,7 +104,7 @@ export default function PublicFormPage({ params }: { params: { slug: string } })
                                 </div>
                                 <p className="text-xs text-muted-foreground flex items-center gap-1.5 mt-2">
                                     <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-                                    We'll send a one-time code to verify you.
+                                    We&apos;ll send a one-time code to verify you.
                                 </p>
                             </div>
                             {error && (

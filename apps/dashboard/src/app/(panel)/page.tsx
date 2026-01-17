@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Plus, MoreVertical, FileText, Calendar, Users, Eye } from "lucide-react";
+import { Plus, MoreVertical, Calendar, Users, Eye } from "lucide-react";
 
 export default function DashboardPage() {
     return (

@@ -1,5 +1,4 @@
 import { Logo } from "@/components/Logo";
-import Link from "next/link";
 
 export default function AuthLayout({
     children,
@@ -18,7 +17,7 @@ export default function AuthLayout({
                 <div className="relative z-20 mt-auto">
                     <blockquote className="space-y-2">
                         <p className="text-lg font-medium">
-                            &ldquo;The most developer-friendly form builder I've ever used. The API-first approach and white-labeling features are exactly what we needed.&rdquo;
+                            &ldquo;The most developer-friendly form builder I&apos;ve ever used. The API-first approach and white-labeling features are exactly what we needed.&rdquo;
                         </p>
                         <footer className="text-sm text-zinc-400">Sofia Davis, CTO @ TechFlow</footer>
                     </blockquote>

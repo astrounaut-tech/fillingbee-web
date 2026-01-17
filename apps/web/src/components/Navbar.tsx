@@ -19,31 +19,31 @@ export function Navbar() {
 
     return (
         <>
-            <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-background/60 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-                <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <nav className="w-full border-b border-border bg-background py-4">
+                <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                     <Logo />
 
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden md:flex items-center gap-10">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                             >
                                 {link.label}
                             </Link>
                         ))}
                     </div>
 
-                    <div className="flex items-center gap-2 md:gap-4">
+                    <div className="flex items-center gap-6">
                         <ThemeToggle />
-                        <div className="hidden md:flex items-center gap-4">
-                            <Link href="https://fillingbee-web-dashboard.vercel.app/auth/signin" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                        <div className="hidden md:flex items-center gap-6">
+                            <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001'}/auth/signin`} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
                                 Sign In
                             </Link>
-                            <Link href="https://fillingbee-web-dashboard.vercel.app/auth/signup">
-                                <Button className="shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all">
-                                    Get Started
+                            <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001'}/auth/signup`}>
+                                <Button className="bg-primary text-primary-foreground font-bold px-6 border-2 border-foreground/5 shadow-none hover:bg-primary/90 rounded-full">
+                                    Sign Up
                                 </Button>
                             </Link>
                         </div>
@@ -77,13 +77,13 @@ export function Navbar() {
                     ))}
                     <div className="pt-6 border-t border-white/5 flex flex-col gap-4">
                         <Link
-                            href="http://localhost:3001/auth/signin"
+                            href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001'}/auth/signin`}
                             onClick={() => setIsOpen(false)}
                             className="text-xl font-medium text-muted-foreground hover:text-foreground transition-colors"
                         >
                             Sign In
                         </Link>
-                        <Link href="http://localhost:3001/auth/signup" onClick={() => setIsOpen(false)}>
+                        <Link href={`${process.env.NEXT_PUBLIC_DASHBOARD_URL || 'http://localhost:3001'}/auth/signup`} onClick={() => setIsOpen(false)}>
                             <Button className="w-full h-12 text-lg font-bold shadow-lg shadow-primary/20">
                                 Get Started for Free
                             </Button>

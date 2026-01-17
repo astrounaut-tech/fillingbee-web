@@ -1,7 +1,6 @@
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Link from "next/link";
-import { Plus, Settings, BarChart2, FileText } from "lucide-react";
 
 export default function DashboardLayout({
     children,
